@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #ff8a3d;
+  --color-brand-blue: #2563eb;
+}
+
+@layer base {
+  :root {
+    --background: #eff6ff; 
+    --sidebar: #ffffff;
+    --card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --primary: #2563eb;
+    --primary-glow: rgba(37, 99, 235, 0.1);
+  }
+
+  .dark {
+    --background: #0b0b0d; /* Layer 1: Deep Black */
+    --sidebar: #111214;    /* Layer 2: Sidebar Dark */
+    --card: #17181c;       /* Layer 3: Card Surface */
+    --text-main: #ffffff;
+    --text-muted: #8a8a93;
+    --border: rgba(255, 255, 255, 0.06);
+    --primary: #ff8a3d;    /* Premium Orange */
+    --primary-glow: rgba(255, 138, 61, 0.15);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-main);
+    @apply transition-colors duration-300 antialiased font-sans;
+  }
+}
+
+.bg-app { background-color: var(--background); }
+.bg-sidebar { background-color: var(--sidebar); }
+.bg-card { background-color: var(--card); }
+.border-app { border-color: var(--border); }
+.text-primary { color: var(--primary); }
+.bg-primary { background-color: var(--primary); }
+.bg-primary-glow { background-color: var(--primary-glow); }
+
+.dark .ambient-glow {
+  background: radial-gradient(circle at 0% 0%, rgba(255, 138, 61, 0.02) 0%, transparent 40%), var(--background);
+  background-attachment: fixed;
+}
